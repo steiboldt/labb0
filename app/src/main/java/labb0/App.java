@@ -39,7 +39,8 @@ public class App {
             }
         }
         
-        System.out.println(answer);
+        System.out.println(">> The name you entered: " + name);
+        System.out.println(">> Your name translated into morse: " + answer);
         /* scanner.close() */
         
 }
