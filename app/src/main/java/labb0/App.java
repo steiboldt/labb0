@@ -3,25 +3,45 @@
  */
 package labb0;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class App {
+
+    
    
-    public static void main(String[] args) {
-        Characters characters = new Characters();
-
+    public static void main(String[] args) throws IOException {
         
+            
+        System.out.println("Welcome to my wonky Morsetranslator");
+        System.out.println("Please input your name (a-z)");
+        Characters characters = new Characters();
+        /* Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        
+        String name = scanner.nextLine() */;
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        String name = r.readLine();
+        
+        name = name.toLowerCase();
+        char[] chars = name.toCharArray();
 
-        String name = "marcus";
 
-        final Map<String, String> arrayMap = new HashMap<String, String>(); 
-        for (int i = 0; i < characters.swedishAlphabet.length; i++) {
-            arrayMap.put(characters.swedishAlphabet[i], characters.morseAlphabet[i]);
-
-            System.out.println(arrayMap);
+        String answer = "";
+        for (int i = 0; i < chars.length; i++) {
+            for (int j = 0; j < characters.swedishAlphabet.length; j++) {
+                if (characters.swedishAlphabet[j] == chars[i]) {
+                    answer = answer + characters.morseAlphabet[j] + " "; 
+                }
+            }
         }
-
-        /* System.out.println(arrayMap); */
+        
+        System.out.println(answer);
+        /* scanner.close() */
+        
 }
 }
+            
