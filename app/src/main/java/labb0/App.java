@@ -3,16 +3,25 @@
  */
 package labb0;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class App {
    
     public static void main(String[] args) {
         Characters characters = new Characters();
 
-        System.out.println(characters.morseAlphabet);
-
-        String name = "marcus";
         
 
+        String name = "marcus";
 
+        final Map<String, String> arrayMap = new HashMap<String, String>(); 
+        for (int i = 0; i < characters.swedishAlphabet.length; i++) {
+            arrayMap.put(characters.swedishAlphabet[i], characters.morseAlphabet[i]);
+
+            System.out.println(arrayMap);
+        }
+
+        /* System.out.println(arrayMap); */
 }
 }
